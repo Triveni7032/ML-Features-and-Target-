@@ -1,0 +1,163 @@
+# Features and Target in Machine Learning
+
+In Machine Learning, data is generally divided into **features** and a **target**.
+
+- Features → Input variables
+- Target → Output variable we want to predict
+
+---
+
+# 1. Features
+
+Features are the input variables used by a Machine Learning model to make predictions.
+
+Example:
+
+```python
+Age = [20, 25, 30]
+Experience = [1, 3, 5]
+
+Here:
+
+Age          → Feature
+Experience   → Feature
+
+Features are usually represented by X.
+
+X = df[["Age", "Experience"]]
+2. Target
+
+The target is the output or value that we want the Machine Learning model to predict.
+
+Example:
+
+Salary = [25000, 35000, 50000]
+
+Here:
+
+Salary → Target
+
+The target is usually represented by y.
+
+y = df["Salary"]
+3. Features vs Target
+Features	Target
+Input data	Output data
+Used to make predictions	Value being predicted
+Usually represented by X	Usually represented by y
+Can contain multiple columns	Usually one target column
+4. Example Dataset
+Age    Experience    Salary
+20        1          25000
+25        3          35000
+30        5          50000
+
+Here:
+
+Features:
+Age
+Experience
+
+Target:
+Salary
+5. Separating Features and Target
+
+Using Pandas:
+
+X = df[["Age", "Experience"]]
+
+y = df["Salary"]
+X
+↓
+Features
+↓
+Age + Experience
+
+y
+↓
+Target
+↓
+Salary
+6. Multiple Features
+
+A dataset can have many features.
+
+X = df[
+    ["Age", "Experience", "Education", "Location"]
+]
+
+y = df["Salary"]
+
+Here, four columns are used as features to predict salary.
+
+7. Classification Example
+
+Suppose we want to predict whether a student will pass.
+
+Features:
+Study Hours
+Attendance
+Previous Marks
+
+Target:
+Pass / Fail
+
+Python:
+
+X = df[["Study_Hours", "Attendance", "Previous_Marks"]]
+
+y = df["Result"]
+8. Regression Example
+
+Suppose we want to predict house prices.
+
+Features:
+Area
+Bedrooms
+Location
+
+Target:
+House Price
+X = df[["Area", "Bedrooms", "Location"]]
+
+y = df["Price"]
+9. Features and Target with Train/Test Split
+
+After separating X and y, they can be split into training and testing data.
+
+from sklearn.model_selection import train_test_split
+
+X = df[["Age", "Experience"]]
+y = df["Salary"]
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.2,
+    random_state=42
+)
+10. Quick Summary
+Features
+↓
+Input variables
+↓
+X
+
+Target
+↓
+Output variable
+↓
+y
+
+Example:
+
+Age + Experience
+        ↓
+    ML Model
+        ↓
+      Salary
+Conclusion
+
+Features are the input variables used by a Machine Learning model, while the target is the output the model tries to predict.
+
+Understanding X and y is an important foundation for building Machine Learning models.
